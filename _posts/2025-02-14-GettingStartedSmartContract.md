@@ -192,7 +192,7 @@ The JSON files and corresponding commands are shown as below:
 
 
 ### Notice
-The accounts do not need to be created using the [API](https://github.com/apache/incubator-resilientdb-blog/edit/main/_posts/2023-01-15-GettingStartedSmartContract.md#create-a-owner-account) below before being used.
+The accounts do not need to be created using the [API](https://github.com/apache/incubator-resilientdb-blog/edit/main/_posts/2023-01-15-GettingStartedSmartContract.md#create-a-owner-account) before being used.
 However, if the account is used to deploy the contract, it must first be created by the API to register in the contract database.
 
 
