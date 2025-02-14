@@ -19,7 +19,7 @@ Here we illustrate how to run a smart contract on Nexres locally. We provide ste
 
 # Install
 Following the instruction [install tutorial]([https://blog.resilientdb.com/2022/09/28/GettingStartedNexRes.html](https://github.com/apache/incubator-resilientdb)) to initial the environment that runs a Key-Value Service locally.
-If you are using our could, you can ignore the system install section.
+If you are using our cloud, you can ignore the system install section.
 
 
 
@@ -192,7 +192,7 @@ The JSON files and corresponding commands are shown as below:
 
 
 ### Notice
-The accounts do not need to be created using the [API](https://github.com/apache/incubator-resilientdb-blog/edit/main/_posts/2023-01-15-GettingStartedSmartContract.md#create-a-owner-account) below before being used.
+The accounts do not need to be created using the [API](https://github.com/apache/incubator-resilientdb-blog/edit/main/_posts/2023-01-15-GettingStartedSmartContract.md#create-a-owner-account) before being used.
 However, if the account is used to deploy the contract, it must first be created by the API to register in the contract database.
 
 
