@@ -19,7 +19,7 @@ Here we illustrate how to run a smart contract on Nexres locally. We provide ste
 
 # Install
 Following the instruction [install tutorial]([https://blog.resilientdb.com/2022/09/28/GettingStartedNexRes.html](https://github.com/apache/incubator-resilientdb)) to initial the environment that runs a Key-Value Service locally.
-If you are using our could, you can ignore the system install section.
+If you are using our cloud, you can ignore the system install section.
 
 
 
