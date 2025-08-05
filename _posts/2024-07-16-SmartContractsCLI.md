@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Getting Started with ResContract CLI 🚀
-author: Gopal Nambiar
+author: gopal
 tags: ResilientDB, ResContract CLI, Smart Contracts, CLI
 aside:
   toc: true

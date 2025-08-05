@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Dive into Smart Contracts with GraphQL API 🌐
-author: Gopal Nambiar
+author: gopal
 tags: ResilientDB SmartContracts GraphQL API
 aside:
    toc: true
