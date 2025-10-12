@@ -38,11 +38,24 @@ Before you begin, ensure you have the following installed:
 
 - **Node.js (version >= 14)**: [Download and install Node.js](https://nodejs.org/en/download/)
 - **npm**: Comes with Node.js. Ensure it's up-to-date.
-- **Solidity Compiler (`solc`)**: Required to compile smart contracts. Install it using:
+- **Solidity Compiler (`solc`)**: Required to compile smart contracts.
 
-  ```bash
-  npm install -g solc
-  ```
+#### Installing `solc`
+
+**Linux (Ubuntu/Debian):**
+```bash
+sudo add-apt-repository ppa:ethereum/ethereum
+sudo apt-get update
+sudo apt-get install -y solc
+```
+
+**macOS:**
+```bash
+brew update
+brew upgrade
+brew tap ethereum/ethereum
+brew install solidity
+```
 
 - **ResilientDB**: A running instance with the smart contracts service enabled.
 
@@ -55,32 +68,31 @@ npm install -g rescontract-cli
 
 ## Configuration
 
-Before using the ResContract CLI, you must set the ResDB_Home environment variable or provide the path to your ResilientDB installation in a config.yaml file.
+Before using the ResContract CLI, you **must** set the `ResDB_Home` environment variable or provide the path to your ResilientDB installation in a `config.yaml` file. The CLI will **not** prompt you for this path and will exit with an error if it's not set.
 
 **Option 1: Set ResDB_Home Environment Variable**
 
-Set the ResDB_Home environment variable to point to the directory where ResilientDB is installed.
+Set the `ResDB_Home` environment variable to point to the directory where ResilientDB is installed.
 
-Linux/macOS:
-
+**Linux/macOS:**
 ```bash
 export ResDB_Home=/path/to/incubator-resilientdb
 ```
 
-Add the above line to your .bashrc or .zshrc file to make it persistent.
+Add the above line to your `.bashrc` or `.zshrc` file to make it persistent.
 
 **Option 2: Use a config.yaml File**
 
-Create a `config.yaml`file in the same directory where you run the `rescontract` command or in your home directory.
+Create a `config.yaml` file in the same directory where you run the `rescontract` command or in your home directory.
 
-Example `config.yaml`:
-
+**Example `config.yaml`:**
 ```yaml
 ResDB_Home: /path/to/incubator-resilientdb
 ```
+
 Ensure the `ResDB_Home` path is correct.
 
-Note: The CLI checks for config.yaml in the current directory first, then in your home directory.
+> **Note:** The CLI checks for `config.yaml` in the current directory first, then in your home directory.
 
 ## 👨🏻‍💻 Using the ResContract CLI
 
@@ -89,6 +101,9 @@ Note: The CLI checks for config.yaml in the current directory first, then in you
 - `compile`: Compile a Solidity contract.
 - `deploy`: Deploy a smart contract.
 - `execute`: Execute a function within a deployed smart contract.
+- `add_address`: Add external addresses to the system.
+- `list-deployments`: List all deployed contracts.
+- `clear-registry`: Clear the deployment registry.
 
 #### Creating a New Account
 
@@ -172,11 +187,68 @@ Sample Output:
 Function executed successfully.
 ```
 
+#### Adding External Addresses
+
+Command:
+```bash
+rescontract add_address --config <path> --external-address <address>
+```
+
+Example:
+```bash
+rescontract add_address --config ../incubator-resilientdb/service/tools/config/interface/service.config \
+--external-address 0xExternalAddress
+```
+
+#### Listing Deployed Contracts
+
+Command:
+```bash
+rescontract list-deployments
+```
+
+Example:
+```bash
+rescontract list-deployments
+```
+
+This command displays all deployed contracts with their owner addresses, contract names, and contract addresses.
+
+#### Clearing the Registry
+
+Command:
+```bash
+rescontract clear-registry
+```
+
+Example:
+```bash
+rescontract clear-registry
+```
+
+**Warning:** This command permanently removes all deployment tracking information.
+
+## 📋 Deployment Registry
+
+The ResContract CLI automatically tracks all deployed contracts in a registry file located at `~/.rescontract_deployed_contracts.json`. This registry provides several benefits:
+
+- **Duplicate Prevention**: Prevents deploying the same contract with the same owner and name
+- **Contract Tracking**: Maintains a record of all deployed contracts with their addresses
+- **Easy Management**: Use `list-deployments` to view all contracts and `clear-registry` to reset
+
+The registry stores the following information for each deployment:
+- Owner address
+- Contract name
+- Contract address
+- Deployment timestamp
+
 ## 📝 Advanced Usage and Tips
 
 - **Logging**: The ResContract CLI logs important events and errors to ~/.rescontract-logs/cli.log.
 - **Error Handling**: If you encounter errors, check the logs for detailed information.
 - **Permissions**: Ensure you have the necessary permissions to execute commands and access files.
+- **Registry Management**: Use `list-deployments` to track your deployed contracts and `clear-registry` to reset when needed.
+- **Duplicate Prevention**: The registry automatically prevents deploying the same contract with the same owner and name.
 - **Updating ResContract CLI**: Keep your CLI up-to-date by running:
 
 ```bash
