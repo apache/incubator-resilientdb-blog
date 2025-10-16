@@ -26,8 +26,27 @@ Welcome to the world of smart contracts on ResilientDB! Our GraphQL API provides
 
 Before diving in, ensure you have the following:
 
-- **ResilientDB**: A running instance with the smart contracts service enabled. [Setup Instructions](#)
-- **Smart Contracts CLI**: A running instance of the CLI tool. [Setup Instructions](#)
+1. **ResilientDB**: A running instance of ResilientDB with the smart contracts service running. More information and setup instructions can be found here: [ResilientDB](https://github.com/apache/incubator-resilientdb)
+
+2. **ResContract CLI**: Install the `rescontract-cli` tool globally. Follow the instructions in the [ResContract CLI Repository](https://github.com/apache/incubator-resilientdb-ResContract) to install and configure it.
+
+   ```bash
+   npm install -g rescontract-cli
+   ```
+
+3. **Node.js (version >= 15.6.0)**: Download and install Node.js version 15.6.0 or higher, as the application uses crypto.randomUUID() which was introduced in Node.js v15.6.0.
+
+   ```bash
+   # You can check your Node.js version with:
+   node -v
+   ```
+
+**The prerequisites listed above can be installed using the `INSTALL.sh` script:**
+
+   ```bash
+   chmod +x INSTALL.sh
+   ./INSTALL.sh
+   ```
 
 Check out this blog post to find out more about Smart Contracts on ResilientDB - [Getting Started with Smart Contract on Nexres](https://blog.resilientdb.com/2023/01/15/GettingStartedSmartContract.html)
 
@@ -58,7 +77,7 @@ Launch the GraphQL API server:
 node server.js
 ```
 
-Your server will be up and running on port 4000. Access the GraphQL API at http://localhost:4000/graphql.
+Your server will be up and running on port 8400. Access the GraphQL API at http://localhost:8400/graphql.
 
 ## Exploring the GraphQL API
 Our API supports several operations to manage and interact with smart contracts. Here’s a look at what you can do:
@@ -72,12 +91,24 @@ Generate a new account using a configuration file.
 }
 ```
 
+**Add Address**
+Add an existing address to the configuration.
+
+```graphql
+{
+  addAddress(
+    config: "path/to/config/file",
+    address: "0xAddressToAdd"
+  )
+}
+```
+
 **Compile Contract**
 Compile a smart contract from a source file and save the output.
 
 ```graphql
 {
-  compileContract(sourcePath: "path/to/source/file", outputPath: "path/to/output/file")
+  compileContract(source: "path/to/source/file")
 }
 ```
 
@@ -104,8 +135,8 @@ Execute a function of a deployed smart contract.
   executeContract(
     config: "path/to/config/file",
     sender: "senderAddress",
-    contract: "contractName",
-    function: "functionName",
+    contract: "contractAddress",
+    functionName: "functionName",
     arguments: "functionArguments"
   )
 }
@@ -121,10 +152,20 @@ Here are some practical examples to get you started:
 }
 ```
 
+- Add Address:
+```graphql
+{
+  addAddress(
+    config: "incubator-resilientdb/service/tools/config/interface/service.config",
+    address: "0x67c6697351ff4aec29cdbaabf2fbe3467cc254f8"
+  )
+}
+```
+
 - Compile Contract:
 ```graphql
 {
-  compileContract(sourcePath: "contracts/MyContract.sol", outputPath: "build/MyContract.json")
+  compileContract(source: "token.sol")
 }
 ```
 
@@ -133,10 +174,10 @@ Here are some practical examples to get you started:
 {
   deployContract(
     config: "incubator-resilientdb/service/tools/config/interface/service.config",
-    contract: "build/MyContract.json",
-    name: "MyContract",
+    contract: "compiled_contracts/MyContract.json",
+    name: "token.sol:Token",
     arguments: "1000",
-    owner: "0x1be8e78d765a2e63339fc99a66320db73158a35a"
+    owner: "0x67c6697351ff4aec29cdbaabf2fbe3467cc254f8"
   )
 }
 ```
@@ -146,11 +187,93 @@ Here are some practical examples to get you started:
 {
   executeContract(
     config: "incubator-resilientdb/service/tools/config/interface/service.config",
-    sender: "0x1be8e78d765a2e63339fc99a66320db73158a35a",
-    contract: "MyContract",
-    function: "transfer",
-    arguments: "0xRecipientAddress,100"
+    sender: "0x67c6697351ff4aec29cdbaabf2fbe3467cc254f8",
+    contract: "0xfc08e5bfebdcf7bb4cf5aafc29be03c1d53898f1",
+    functionName: "transfer(address,uint256)",
+    arguments: "0x1be8e78d765a2e63339fc99a66320db73158a35a,100"
   )
+}
+```
+
+## Advanced Usage with Type Parameter
+
+The API supports both "path" and "data" types for all mutations. The `type` parameter defaults to "path" and doesn't have to be explicitly set.
+
+### Using type "path" (Default)
+When using file paths, you don't need to specify the type parameter:
+
+```graphql
+mutation {
+  createAccount(config: "../incubator-resilientdb/service/tools/config/interface/service.config")
+}
+```
+
+### Using type "data"
+When passing configuration data directly, specify `type: "data"`:
+
+```graphql
+mutation {
+  createAccount(
+    config: "5 127.0.0.1 10005",
+    type: "data"
+  )
+}
+```
+
+**Note**: The response formats differ between "path" and "data" types:
+- **"path" type**: Returns structured JSON objects
+- **"data" type**: Returns string responses with newlines
+
+## Sample Responses
+
+Here are the expected responses for each mutation:
+
+**Create Account Response:**
+```json
+{
+  "data": {
+    "createAccount": "0x67c6697351ff4aec29cdbaabf2fbe3467cc254f8"
+  }
+}
+```
+
+**Add Address Response:**
+```json
+{
+  "data": {
+    "addAddress": "Address added successfully"
+  }
+}
+```
+
+**Compile Contract Response:**
+```json
+{
+  "data": {
+    "compileContract": "Compiled successfully to /users/yourusername/smart-contracts-graphql/compiled_contracts/MyContract.json"
+  }
+}
+```
+
+**Deploy Contract Response:**
+```json
+{
+  "data": {
+    "deployContract": {
+      "ownerAddress": "0x67c6697351ff4aec29cdbaabf2fbe3467cc254f8",
+      "contractAddress": "0xfc08e5bfebdcf7bb4cf5aafc29be03c1d53898f1",
+      "contractName": "token.sol:Token"
+    }
+  }
+}
+```
+
+**Execute Contract Response:**
+```json
+{
+  "data": {
+    "executeContract": "Execution successful"
+  }
 }
 ```
 
