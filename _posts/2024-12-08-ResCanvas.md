@@ -119,8 +119,6 @@ The core functionality of ResCanvas also depends on the **availability of Resili
 
 Furthermore, certain backend layers and services, such as Redis and MongoDB, rely on the user's level of **backend trust**. Users must trust the backend operators to correctly implement and enforce security policies, and also ensure that those backend layers and services are running on trusted nodes. Having nodes that are trustworthy to the user is essential as the backend has access to certain data such as unencrypted strokes for public rooms.
 
----
-
 # ResCanvas Setup Guide
 Want to deploy and run ResCanvas locally right on your own machine? This guide provides complete instructions to deploy ResCanvas locally, including setup for the cache layer, backend, and frontend.
 
@@ -270,5 +268,3 @@ npm start
 ```
 
 The app should now be running at `http://localhost:[...]`
-
----
