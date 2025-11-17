@@ -14,13 +14,6 @@ article_header:
     src: /assets/images/resdb-gettingstarted/code_close_up.jpeg
 ---
 
-<p align="center">
-  <img width="389" height="91" alt="image" src="https://github.com/user-attachments/assets/24a5606a-988c-43ea-9eee-ab19ed6628be" />
-</p>
-
-_**<p align="center">Real-time creativity, backed by decentralized trust and resiliency.</p>**_
-**<p align="center">By Henry Chou and Chris Ruan</p>**
-
 # The Existing Problem
 Drawing is an important aspect of art and free expression within a variety of domains to express new ideas and valuable works of creativity. Tools such as MS Paint allow for drawing to be achievable on the computer, with online tools extending that functionality over the cloud where users can share and collaborate on drawings and other digital works of art. Both Google's Drawing and Canva's Draw application have a sharable canvas page where registered users can draw, and Figma has also been quite popular due to its wide array of features and ease of use.
 
