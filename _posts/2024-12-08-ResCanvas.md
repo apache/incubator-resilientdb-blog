@@ -14,13 +14,6 @@ article_header:
     src: /assets/images/resdb-gettingstarted/code_close_up.jpeg
 ---
 
-<p align="center">
-  <img width="389" height="91" alt="image" src="https://github.com/user-attachments/assets/24a5606a-988c-43ea-9eee-ab19ed6628be" />
-</p>
-
-_**<p align="center">Real-time creativity, backed by decentralized trust and resiliency.</p>**_
-**<p align="center">By Henry Chou and Chris Ruan</p>**
-
 # The Existing Problem
 Drawing is an important aspect of art and free expression within a variety of domains to express new ideas and valuable works of creativity. Tools such as MS Paint allow for drawing to be achievable on the computer, with online tools extending that functionality over the cloud where users can share and collaborate on drawings and other digital works of art. Both Google's Drawing and Canva's Draw application have a sharable canvas page where registered users can draw, and Figma has also been quite popular due to its wide array of features and ease of use.
 
@@ -125,8 +118,6 @@ For instance, there is still a risk that the application can suffer from **front
 The core functionality of ResCanvas also depends on the **availability of ResilientDB**. ResilientDB endpoints and GraphQL commit endpoints used by the backend must remain available and trusted by backend operators. If those services are compromised, ledger inclusion or availability may be affected. However, the probability of this occurring is extremely low due to the decentralized, blockchain nature of ResilientDB.
 
 Furthermore, certain backend layers and services, such as Redis and MongoDB, rely on the user's level of **backend trust**. Users must trust the backend operators to correctly implement and enforce security policies, and also ensure that those backend layers and services are running on trusted nodes. Having nodes that are trustworthy to the user is essential as the backend has access to certain data such as unencrypted strokes for public rooms.
-
----
 
 # ResCanvas Setup Guide
 Want to deploy and run ResCanvas locally right on your own machine? This guide provides complete instructions to deploy ResCanvas locally, including setup for the cache layer, backend, and frontend.
@@ -277,5 +268,3 @@ npm start
 ```
 
 The app should now be running at `http://localhost:[...]`
-
----
