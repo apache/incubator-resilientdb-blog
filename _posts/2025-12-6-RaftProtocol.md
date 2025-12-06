@@ -26,8 +26,36 @@ Raft is a crash fault tolerant (CFT) protocol, and would be the first non-Byzant
 <p style="text-align:center;">
     <img src="/assets/images/raft/protocolOverview.png" alt="Raft Protocol Diagram"/>
     <br>
-    <em>Figure 1. Picture describing Arrayán
+    <em>Figure 1. Picture describing Raft Protocol
     </em>
 </p>
+
+
+## How It Differs from PBFT
+
+<p style="text-align:center;">
+    <img src="/assets/images/raft/RaftvsPBFT.png" alt="PBFT vs Raft Table"/>
+    <br>
+    <em>Figure 2. Table comparing Raft vs PBFT
+    </em>
+</p>
+
+
+## Useful Links
+- Protocol is currently in this repo: 
+- Official Raft consensus protocol paper:
+
+## Our Implementation Strategy and Architecture
+
+For our implementation, we chose to build on existing consensus protocol code, considering both PBFT and PoE, and ultimately selecting PoE for its simpler and more extensible design. The Consensus class exposes a ProcessCustomConsensus() method that lets us send custom message types through the RPC dispatcher, which in turn allows us to reuse existing components for database access and client notifications via TransactionManager, as well as replica messaging via ReplicaCommunicator. Our approach also benefits from built-in benchmarking support through the PerformanceManager module.
+
+<p style="text-align:center;">
+    <img src="/assets/images/raft/Architecture.png" alt="Implementation Architecture"/>
+    <br>
+    <em>Figure 3. Implementation Architecture
+    </em>
+</p>
+
+
 
 
