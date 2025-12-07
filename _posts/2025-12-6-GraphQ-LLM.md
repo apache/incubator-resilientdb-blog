@@ -20,6 +20,8 @@ article_header:
 
 GraphQ-LLM is an intelligent AI assistant that helps developers learn, understand, and optimize GraphQL queries for ResilientDB. Built with Retrieval-Augmented Generation (RAG) and integrated with the ResilientApp ecosystem, it provides real-time explanations, optimization suggestions, and performance insights for your GraphQL queries.
 
+![Homepage](/assets/images/graphq-llm/nexus.png)
+
 ## 🎯 What is GraphQ-LLM?
 
 GraphQ-LLM is a comprehensive AI tutor that transforms how developers interact with GraphQL APIs. Instead of searching through documentation or trial-and-error query writing, developers can ask questions with our LLM model or paste their queries to get:
@@ -99,6 +101,10 @@ Get actionable recommendations:
 ### 4. **Performance Metrics**
 
 See efficiency scores, estimated execution times, and resource usage to understand query performance at a glance.
+
+![UI](/assets/images/graphq-llm/llm-ui.png)
+
+![reslens](/assets/images/graphq-llm/reslens.png)
 
 ## 📦 Setup Overview
 
