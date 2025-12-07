@@ -42,8 +42,8 @@ Raft is a crash fault tolerant (CFT) protocol, and would be the first non-Byzant
 
 
 ## Useful Links
-- Protocol is currently in this repo: [https://raft.github.io/raft.pdf](https://raft.github.io/raft.pdf)
-- Official Raft consensus protocol paper: [https://github.com/hammerface/incubator-resilientdb/tree/raft](https://github.com/hammerface/incubator-resilientdb/tree/raft)
+- Official Raft consensus protocol paper: [https://raft.github.io/raft.pdf](https://raft.github.io/raft.pdf)
+- Protocol is currently in this repo: [https://github.com/hammerface/incubator-resilientdb/tree/raft](https://github.com/hammerface/incubator-resilientdb/tree/raft)
 
 # Our Implementation Strategy and Architecture
 
