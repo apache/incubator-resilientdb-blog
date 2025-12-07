@@ -16,7 +16,7 @@ article_header:
 
 ---
 
-## What is Raft?
+# What is Raft?
 
 Raft is a consensus protocol used in many existing software systems including Kubernetes, Kafka, and MongoDB. It has been battle-tested in many circumstances since it was first described in 2013. The ResilientDB project on GitHub has had an open issue since October 2023 for Raft to be added to the portfolio of available consensus protocols. We aim to fulfill this feature request.
 
@@ -42,10 +42,10 @@ Raft is a crash fault tolerant (CFT) protocol, and would be the first non-Byzant
 
 
 ## Useful Links
-- Protocol is currently in this repo: [https://arrayan.resilientdb.com/](https://arrayan.resilientdb.com/)
-- Official Raft consensus protocol paper: [https://arrayan.resilientdb.com/](https://arrayan.resilientdb.com/)
+- Protocol is currently in this repo: [https://raft.github.io/raft.pdf](https://raft.github.io/raft.pdf)
+- Official Raft consensus protocol paper: [https://github.com/hammerface/incubator-resilientdb/tree/raft](https://github.com/hammerface/incubator-resilientdb/tree/raft)
 
-## Our Implementation Strategy and Architecture
+# Our Implementation Strategy and Architecture
 
 For our implementation, we chose to build on existing consensus protocol code, considering both PBFT and PoE, and ultimately selecting PoE for its simpler and more extensible design. The Consensus class exposes a ProcessCustomConsensus() method that lets us send custom message types through the RPC dispatcher, which in turn allows us to reuse existing components for database access and client notifications via TransactionManager, as well as replica messaging via ReplicaCommunicator. Our approach also benefits from built-in benchmarking support through the PerformanceManager module.
 
@@ -58,7 +58,7 @@ For our implementation, we chose to build on existing consensus protocol code, c
 
 
 
-# 1. Append Entries RPC - Log Replication
+## 1. Append Entries RPC - Log Replication
 
 In Raft, log replication is driven by the leader: whenever a client sends a command, the leader appends it to its own log and then sends AppendEntries RPCs to followers to copy the new log entries. Followers accept an entry only if it follows a log prefix that matches the leader’s (same term and index), which keeps logs consistent across the cluster. Once a majority of followers have stored an entry, the leader commits it and applies it to the state machine, then notifies followers so they can commit it too. Catchup happens naturally for slow or rebooted followers: the leader keeps sending them AppendEntries starting from their nextIndex until their log matches the leader’s, filling in any missing or outdated entries along the way.
 
@@ -74,7 +74,7 @@ In Raft, log replication is driven by the leader: whenever a client sends a comm
 
 
 
-# 2. Leader Election
+## 2. Leader Election
 
 In Raft, leader election happens when servers stop hearing from a current leader. Each server starts as a follower. If a follower doesn’t receive a heartbeat or log entry from a leader within a timeout, it becomes a candidate, increments its term, and asks the other servers for votes. Servers will vote for at most one candidate per term, and they only vote for a candidate whose log is at least as up to date as their own. If a candidate receives votes from a majority, it becomes the new leader and immediately starts sending heartbeats to assert its authority and prevent new elections. If there’s a tie (no one gets a majority), everyone times out again with slightly randomized timers and the election is retried until a leader is chosen.
 
