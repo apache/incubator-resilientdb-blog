@@ -42,8 +42,8 @@ Raft is a crash fault tolerant (CFT) protocol, and would be the first non-Byzant
 
 
 ## Useful Links
-- Protocol is currently in this repo: 
-- Official Raft consensus protocol paper:
+- Protocol is currently in this repo: [https://arrayan.resilientdb.com/](https://arrayan.resilientdb.com/)
+- Official Raft consensus protocol paper: [https://arrayan.resilientdb.com/](https://arrayan.resilientdb.com/)
 
 ## Our Implementation Strategy and Architecture
 
@@ -55,6 +55,52 @@ For our implementation, we chose to build on existing consensus protocol code, c
     <em>Figure 3. Implementation Architecture
     </em>
 </p>
+
+
+
+# 1. Append Entries RPC - Log Replication
+
+In Raft, log replication is driven by the leader: whenever a client sends a command, the leader appends it to its own log and then sends AppendEntries RPCs to followers to copy the new log entries. Followers accept an entry only if it follows a log prefix that matches the leader’s (same term and index), which keeps logs consistent across the cluster. Once a majority of followers have stored an entry, the leader commits it and applies it to the state machine, then notifies followers so they can commit it too. Catchup happens naturally for slow or rebooted followers: the leader keeps sending them AppendEntries starting from their nextIndex until their log matches the leader’s, filling in any missing or outdated entries along the way.
+
+
+**Our Implementation Logs**
+
+<p style="text-align:center;">
+    <img src="/assets/images/raft/AppendEntriesLogs.png" alt="Append Entries Logs"/>
+    <br>
+    <em>Figure 4. Append Entries Logs
+    </em>
+</p>
+
+
+
+# 2. Leader Election
+
+In Raft, leader election happens when servers stop hearing from a current leader. Each server starts as a follower. If a follower doesn’t receive a heartbeat or log entry from a leader within a timeout, it becomes a candidate, increments its term, and asks the other servers for votes. Servers will vote for at most one candidate per term, and they only vote for a candidate whose log is at least as up to date as their own. If a candidate receives votes from a majority, it becomes the new leader and immediately starts sending heartbeats to assert its authority and prevent new elections. If there’s a tie (no one gets a majority), everyone times out again with slightly randomized timers and the election is retried until a leader is chosen.
+
+**Our Implementation Logs**
+
+<p style="text-align:center;">
+    <img src="/assets/images/raft/AppendEntriesLogs.png" alt="Leader Election Logs"/>
+    <br>
+    <em>Figure 5. Leader Election Logs
+    </em>
+</p>
+
+
+## Benchmarks
+
+
+
+## Looking Ahead
+
+-**Batching** - Groups multiple client transactions into a single Append Entry RPC to significantly boost throughput and reduce network overhead.
+
+-**State Persistence** - Saves critical data (current term, vote, and log) related to the protocol itself to stable storage (in ResilientDB). .
+
+-**Snapshots** - Replaces old log entries with a compact file of the current state to prevent the log from consuming all available memory and to allow followers to catch up quicker
+
+-**Membership Changes** - Enables the safe addition or removal of servers from the cluster dynamically without shutting down the system or halting operations.
 
 
 
