@@ -81,6 +81,8 @@ Paste any GraphQL query and get a detailed breakdown:
 - Expected response format
 - Common use cases
 
+![explanation](/assets/images/graphq-llm/explanation.jpeg)
+
 ### 2. **Natural Language Q&A**
 
 Ask questions like:
@@ -97,6 +99,8 @@ Get actionable recommendations:
 - Use field aliases for clarity
 - Add filters to reduce result size
 - Optimize nested queries
+
+![recommendation](/assets/images/graphq-llm/recommendations.png)
 
 ### 4. **Performance Metrics**
 
@@ -186,6 +190,8 @@ All services run in Docker containers:
 - **GraphQ-LLM MCP Server** - For MCP client integration (stdio transport)
 - **ResLens Middleware** (Port 3003) - Performance monitoring API (optional)
 - **ResLens Frontend** (Port 5173) - Performance monitoring UI (optional)
+
+![docker](/assets/images/graphq-llm/docker.jpeg)
 
 ## 💡 How It Helps Developers
 
