@@ -18,18 +18,17 @@ article_header:
 
 ## Introduction
 
-GraphQ-LLM is an intelligent AI assistant that helps developers learn, understand, and optimize GraphQL queries for ResilientDB. Built with Retrieval-Augmented Generation (RAG) and integrated with the ResilientApp ecosystem, it provides real-time explanations, optimization suggestions, and performance insights for your GraphQL queries.
+GraphQ-LLM is an intelligent AI assistant that helps developers learn, understand, and optimize GraphQL queries for ResilientDB. Built with Retrieval-Augmented Generation (RAG) and integrated with the ResilientApp ecosystem, it provides real-time explanations, suggestions, and performance insights for your GraphQL queries.
 
 ![Homepage](/assets/images/graphq-llm/nexus.png)
 
 ## 🎯 What is GraphQ-LLM?
 
-GraphQ-LLM is a comprehensive AI tutor that transforms how developers interact with GraphQL APIs. Instead of searching through documentation or trial-and-error query writing, developers can ask questions with our LLM model or paste their queries to get:
+GraphQ-LLM is a comprehensive AI tutor that transforms how developers interact with GraphQL APIs. Instead of searching through documentation or trial-and-error query writing, developers can ask questions in natural language or paste their queries to get:
 
 - **Detailed Explanations**: Understand what each query does, how fields work, and what to expect in responses
-- **Optimization Suggestions**: Get actionable recommendations to improve query performance and efficiency
 - **Efficiency Metrics**: See estimated execution time, resource usage, and complexity scores
-- **Documentation Context**: Access relevant ResilientDB and GraphQL documentation when searching
+- **Documentation Context**: Access relevant ResilientDB and GraphQL documentation through semantic search
 
 ## 🏗️ How It Works
 
@@ -49,12 +48,7 @@ GraphQ-LLM is a comprehensive AI tutor that transforms how developers interact w
    - For queries: Analyzes structure, fields, operations, and provides explanations
    - For questions: Retrieves relevant docs and generates comprehensive answers
 
-3. **Optimization Engine**
-   - Analyzes query structure and complexity
-   - Compares with historical query patterns (via ResLens)
-   - Provides specific, actionable optimization recommendations
-
-4. **Efficiency Estimator**
+3. **Efficiency Estimator**
    - Calculates query complexity scores
    - Estimates execution time and resource usage
    - Provides real-time metrics when ResLens is enabled
@@ -204,7 +198,7 @@ New to GraphQL? GraphQ-LLM explains:
 - Schema exploration
 - Best practices
 
-### Query Optimization
+### Query Effeciency
 
 Working on performance? Get:
 - Complexity analysis
