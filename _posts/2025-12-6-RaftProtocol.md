@@ -1,7 +1,7 @@
 ---
 layout: article
 title: "Implementing Raft Consensus Protocol for ResilientDB"
-author: Vinoth Gopikrishnan, Josh Hutton, Jim Brower, Nachiket, Yuhua Huang
+author: Vinoth Gopikrishnan, Josh Hutton, Jim Brower, Nachiket Subbaraman, Yuhua Huang
 tags: ResilientDB Raft Consensus Protocol
 aside:
     toc: true
