@@ -95,8 +95,6 @@ In Raft, leader elections occur when servers do not hear from the current leader
 </p>
 
 
-## Benchmarks
-
 ## Commands to Execute
 Here are the commands to download Resilient DB, build it, and run the RAFT and PBFT performance scripts:
 1. `sudo apt update`
@@ -111,6 +109,32 @@ Here are the commands to download Resilient DB, build it, and run the RAFT and P
 10. `touch config/key.conf`
 11. `./performance_local/raft_performance.sh config/kv_performance_server_local.conf` 
 12. `./performance_local/pbft_performance.sh config/kv_performance_server_local.conf`
+
+## Benchmarks
+
+Here is our output after running both of the performance scripts, with PBFT results gathered using the main branch:
+
+Note, both configurations have the minimum number of nodes for f = 1 (the client is included as a node, so 4 replicas for PBFT and 3 replicas for Raft).
+
+PBFT:
+```
+calculate results, number of nodes: 5
+max throughput: 44660
+average throughput: 20871.272727272728
+max latency: 0.000144599
+average latency: 0.000107366275
+```
+
+Raft:
+```
+calculate results, number of nodes: 4
+max throughput: 104418
+average throughput: 45385.2
+max latency: 8.15001e-05
+average latency: 6.7288925e-05
+```
+
+Raft outperforms PBFT both in terms of throughput and latency, by roughly double.
 
 ## Looking Ahead
 
