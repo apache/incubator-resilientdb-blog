@@ -97,7 +97,19 @@ In Raft, leader elections occur when servers do not hear from the current leader
 
 ## Benchmarks
 
-
+## Commands to Execute
+Here are the commands to download Resilient DB, build it, and run the RAFT and PBFT performance scripts:
+1. `sudo apt update`
+2. `sudo apt-get install git`
+3. `sudo apt install psmisc`
+4. `git clone https://github.com/apache/incubator-resilientdb.git`
+5. `cd incubator-resilientdb/`
+6. `./INSTALL.sh`
+7. `./service/tools/kv/server_tools/start_kv_service.sh`
+8. `bazel build service/tools/kv/api_tools/kv_service_tools`
+9. `cd scripts/deploy/`
+10. ` ./performance_local/raft_performance.sh config/kv_performance_server_local.conf` 
+11.  `./performance_local/pbft_performance.sh config/kv_performance_server_local.conf`
 
 ## Looking Ahead
 
