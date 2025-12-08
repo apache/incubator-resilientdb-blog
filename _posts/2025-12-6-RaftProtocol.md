@@ -78,6 +78,13 @@ In Raft, log replication is driven by the leader: whenever a client sends a comm
 
 In Raft, leader election happens when servers stop hearing from a current leader. Each server starts as a follower. If a follower doesn’t receive a heartbeat or log entry from a leader within a timeout, it becomes a candidate, increments its term, and asks the other servers for votes. Servers will vote for at most one candidate per term, and they only vote for a candidate whose log is at least as up to date as their own. If a candidate receives votes from a majority, it becomes the new leader and immediately starts sending heartbeats to assert its authority and prevent new elections. If there’s a tie (no one gets a majority), everyone times out again with slightly randomized timers and the election is retried until a leader is chosen.
 
+<p style="text-align:center;">
+    <img src="/assets/images/raft/LeaderElection.png" alt="Leader Election Diagram"/>
+    <br>
+    <em>Figure 5. Leader Election Diagram
+    </em>
+</p>
+
 **Our Implementation Logs**
 
 <p style="text-align:center;">
