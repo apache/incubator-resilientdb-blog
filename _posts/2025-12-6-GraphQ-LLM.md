@@ -111,11 +111,7 @@ See efficiency scores, estimated execution times, and resource usage to understa
 
 Clean interface for interacting back and forth with the AI in a chat.
 
-![chat1](/assets/images/graphq-llm/chat1.jpeg)
-
-![chat2](/assets/images/graphq-llm/chat2.jpeg)
-
-![chat3](/assets/images/graphq-llm/chat3.jpeg)
+![chat](/assets/images/graphq-llm/chat.jpeg)
 
 ## 📦 Setup Overview
 
