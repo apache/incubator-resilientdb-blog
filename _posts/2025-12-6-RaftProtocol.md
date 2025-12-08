@@ -88,9 +88,9 @@ In Raft, leader elections occur when servers do not hear from the current leader
 **Our Implementation Logs**
 
 <p style="text-align:center;">
-    <img src="/assets/images/raft/AppendEntriesLogs.png" alt="Leader Election Logs"/>
+    <img src="/assets/images/raft/LeaderElectionLogs.png" alt="Leader Election Logs"/>
     <br>
-    <em>Figure 5. Leader Election Logs
+    <em>Figure 6. Aggregated Excerpts about Leader Election from the Logs
     </em>
 </p>
 
