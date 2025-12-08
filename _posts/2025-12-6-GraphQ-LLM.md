@@ -106,6 +106,17 @@ See efficiency scores, estimated execution times, and resource usage to understa
 
 ![reslens](/assets/images/graphq-llm/reslens.png)
 
+
+### 5. **Chatbot Interface**
+
+Clean interface for interacting back and forth with the AI in a chat.
+
+![chat1](/assets/images/graphq-llm/chat1.jpeg)
+
+![chat2](/assets/images/graphq-llm/chat2.jpeg)
+
+![chat3](/assets/images/graphq-llm/chat3.jpeg)
+
 ## 📦 Setup Overview
 
 GraphQ-LLM is fully dockerized for easy deployment. Here's what you need:
