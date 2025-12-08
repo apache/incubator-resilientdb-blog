@@ -108,8 +108,9 @@ Here are the commands to download Resilient DB, build it, and run the RAFT and P
 7. `./service/tools/kv/server_tools/start_kv_service.sh`
 8. `bazel build service/tools/kv/api_tools/kv_service_tools`
 9. `cd scripts/deploy/`
-10. ` ./performance_local/raft_performance.sh config/kv_performance_server_local.conf` 
-11.  `./performance_local/pbft_performance.sh config/kv_performance_server_local.conf`
+10. `touch config/key.conf`
+11. `./performance_local/raft_performance.sh config/kv_performance_server_local.conf` 
+12. `./performance_local/pbft_performance.sh config/kv_performance_server_local.conf`
 
 ## Looking Ahead
 
