@@ -134,7 +134,7 @@ max latency: 8.15001e-05
 average latency: 6.7288925e-05
 ```
 
-Raft outperforms PBFT both in terms of throughput and latency, by roughly double.
+Raft outperforms PBFT both in terms of throughput and latency, by roughly double. We ran into issues with the leader election with 4 Raft nodes, which we are still looking into.
 
 ## Looking Ahead
 
@@ -145,3 +145,5 @@ Raft outperforms PBFT both in terms of throughput and latency, by roughly double
 -**Snapshots** - Replaces old log entries with a compact file of the current state to prevent the log from consuming all available memory and to allow followers to catch up quicker.
 
 -**Membership Changes** - Enables the safe addition or removal of servers from the cluster dynamically without shutting down the system or halting operations.
+
+-**Inconsistent progress stalls** - We appear to have some inconsistencies with the leader elections where the leader is chosen but does not appear to make progress. How often this state occurs seems to vary based on the number of nodes. This needs to be investigated.
