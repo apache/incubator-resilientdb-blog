@@ -86,6 +86,8 @@ Ask questions like:
 
 The system retrieves relevant documentation and provides comprehensive answers with examples.
 
+![question](/assets/images/graphq-llm/question.jpeg)
+
 ### 3. **Query Optimization Suggestions**
 
 Get actionable recommendations:
