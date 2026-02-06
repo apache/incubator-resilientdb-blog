@@ -18,6 +18,17 @@ article_header:
 
 ResShare is a decentralized file sharing application that allows users to securely store, share, and manage their files using Resilient DB technology. The application now features an **AI-powered chatbot** that can answer questions about your uploaded documents using Retrieval-Augmented Generation (RAG).
 
+## Motivation
+With the rapid advancement of personal computing hardware, modern users now routinely own devices equipped with hundreds of gigabytes—or even multiple terabytes—of local storage. However, in practice, a significant portion of this storage capacity remains underutilized. For most users, less than half of their available disk space is actively used, leaving a vast amount of idle storage resources scattered across personal computers worldwide.
+
+At the same time, existing cloud storage solutions rely heavily on centralized infrastructures, which introduce concerns related to cost, scalability, data ownership, single points of failure, and long-term sustainability. Users are required to entrust their data to centralized providers, often with limited transparency or control over how their data is stored, replicated, or accessed.
+
+The core motivation behind ResShare is to bridge this gap by transforming unused local storage into a collectively shared, decentralized storage network. Instead of letting idle disk space go to waste, ResShare enables users to contribute their surplus storage capacity to a peer-to-peer ecosystem, where storage is shared, replicated, and managed in a decentralized and fault-tolerant manner.
+
+By building on ResilientDB for reliable metadata management and IPFS for content-addressed distributed storage, ResShare aims to create a storage system that is not only efficient and scalable, but also resilient to failures and censorship. In this model, storage becomes a shared community resource rather than a centralized service, aligning incentives across users while preserving data ownership and privacy.
+
+Ultimately, ResShare envisions a future where personal devices collaboratively form a decentralized storage backbone—leveraging existing, underutilized resources to provide a more sustainable, trustworthy, and user-centric alternative to traditional cloud storage systems.
+
 ## Features
 
 ### Core Features
@@ -157,6 +168,7 @@ export GOOGLE_API_KEY="sk-your-key-here"
 3. **Ask Questions**: Use the AI Chat interface to query your documents
 4. **Get Intelligent Answers**: Receive responses with source attribution
 5. **Explore Knowledge Base**: View statistics about your indexed documents
+
 ## Architecture
 
 ### RAG Pipeline
@@ -165,6 +177,7 @@ File Upload → Text Extraction → Chunking → Embedding → Vector DB Storage
                                                             ↓
 User Query → Query Embedding → Vector Search → Context → LLM → Response
 ```
+![Image](/assets/images/resshare/pipelineImage.png)
 
 ### Components
 - **Text Extractors**: PDF (PyPDF2), DOCX (python-docx), TXT (UTF-8)
