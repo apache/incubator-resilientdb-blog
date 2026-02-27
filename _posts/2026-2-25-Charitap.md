@@ -61,7 +61,7 @@ turns the act of living into an act of giving.
 Step 1: Users sign up or log in to their personal impact portal. This is
 where your journey of giving begins.
 
-![](assets/images/charitap/image7.png)
+![](/assets/images/charitap/image7.png)
 
 **Seamless signup experience with Google OAuth**
 
@@ -69,7 +69,7 @@ Step 2: Charitap works silently in the background. When you visit any of
 the millions of supported e-commerce sites and reach the checkout, the
 extension springs to life.
 
-![](assets/images/charitap/image4.png)
+![](/assets/images/charitap/image4.png)
 
 **Charitap automatically detects your cart total on sites like Amazon or
 Shopify and offers to round up your spare change.**
@@ -79,7 +79,7 @@ button, your donation is processed. To celebrate your kindness, the
 screen bursts with confetti, providing instant confirmation that you've
 made a difference.
 
-![](assets/images/charitap/image3.png)
+![](/assets/images/charitap/image3.png)
 
 **Making the world better, one cent at a time**
 
@@ -87,7 +87,7 @@ Step 4: Head back to the Charitap dashboard to see the big picture.
 Here, you can track your total donations, see how many \"round-ups\"
 you've completed, and view your impact trends over time.
 
-![](assets/images/charitap/image2.png)
+![](/assets/images/charitap/image2.png)
 
 **Your personal command center for tracking the power of your collective
 kindness.**
@@ -96,7 +96,7 @@ Step 5: The Activity page provides a detailed Ledger of every
 transaction. Each entry is linked to a ResilientDB blockchain ID,
 providing 100% proof of your donation.
 
-![](assets/images/charitap/image5.png)
+![](/assets/images/charitap/image5.png)
 
 **Every cent is logged on an immutable blockchain for you to verify.**
 
@@ -104,7 +104,7 @@ Step 6: Nominate your favorite charities, update your profile, and
 manage your account to ensure your philanthropy is as personal as it is
 impactful.
 
-![](assets/images/charitap/image1.png)
+![](/assets/images/charitap/image1.png)
 
 **Customizing your experience to support the causes that matter most to
 you.**
@@ -146,7 +146,7 @@ you.**
 
 ### **Technical Deep Dive: The Hybrid Architecture**
 
-![](assets/images/charitap/image6.jpg)
+![](/assets/images/charitap/image6.jpg)
 
 Charitap is a multi-layered system designed to bridge the gap between
 traditional finance (fiat) and decentralized ledgers.
