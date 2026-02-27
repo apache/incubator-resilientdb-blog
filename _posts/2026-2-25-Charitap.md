@@ -1,8 +1,8 @@
 ---
 layout: article
 title: "Charitap: Transforming Spare Change into Social Impact"
-author: Aman_Dhairye_Himanshu
-tags: ResilientDB Blockchain Donation Micro-donation SmartContract
+author: Aman Dwivedi, Himanshu Nimonkar, Dhairye Gala
+tags: ResilientDB Blockchain Micro-donation SmartContract
 aside:
   toc: true
 article_header:
@@ -11,6 +11,7 @@ article_header:
   background_color: "#203028"
   background_image:
     gradient: "linear-gradient(135deg, rgba(34, 139, 87 , .4), rgba(139, 34, 139, .4))"
+    src: /assets/images/resauc/giphy.webp
 ---
 
 # Charitap: Transforming Spare Change into Social Impact
