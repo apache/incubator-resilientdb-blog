@@ -222,7 +222,7 @@ Receipts**:
 #### **Installation**
 
 1.  **Clone the repository** git clone
-  https://github.com/dhairye/Charitap.git
+  https://github.com/ResilientApp/Charitap.git
 
 2.  **Install Frontend Dependencies** cd src\
   npm install
