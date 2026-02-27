@@ -29,10 +29,10 @@ Website is live at:
 [https://charitap-frontend.vercel.app](https://charitap-frontend.vercel.app)
 
 Code Repository:
-[https://github.com/dhairye/Charitap](https://github.com/dhairye/Charitap)
+[https://github.com/ResilientApp/Charitap](https://github.com/ResilientApp/Charitap)
 
 Presentation Slides:
-[https://github.com/dhairye/Charitap/blob/chrome-extension/Presentation%20-%20Charitap.pdf](https://github.com/dhairye/Charitap/blob/chrome-extension/Presentation%20-%20Charitap.pdf)
+[https://github.com/ResilientApp/Charitap/blob/chrome-extension/Presentation%20-%20Charitap.pdf](https://github.com/ResilientApp/Charitap/blob/chrome-extension/Presentation%20-%20Charitap.pdf)
 
 Demo:
 [https://drive.google.com/file/d/1hs5s6Y1NnB4djBBSIoU4bPaFRvC6t5Mp/view?usp=sharing](https://drive.google.com/file/d/1hs5s6Y1NnB4djBBSIoU4bPaFRvC6t5Mp/view?usp=sharing)
@@ -61,7 +61,7 @@ turns the act of living into an act of giving.
 Step 1: Users sign up or log in to their personal impact portal. This is
 where your journey of giving begins.
 
-![](ssets/images/2026-25-2-Charitap/image7.png)
+![](assets/images/charitap/image7.png)
 
 **Seamless signup experience with Google OAuth**
 
@@ -69,7 +69,7 @@ Step 2: Charitap works silently in the background. When you visit any of
 the millions of supported e-commerce sites and reach the checkout, the
 extension springs to life.
 
-![](ssets/images/2026-25-2-Charitap/image4.png)
+![](assets/images/charitap/image4.png)
 
 **Charitap automatically detects your cart total on sites like Amazon or
 Shopify and offers to round up your spare change.**
@@ -79,7 +79,7 @@ button, your donation is processed. To celebrate your kindness, the
 screen bursts with confetti, providing instant confirmation that you've
 made a difference.
 
-![](ssets/images/2026-25-2-Charitap/image3.png)
+![](assets/images/charitap/image3.png)
 
 **Making the world better, one cent at a time**
 
@@ -87,7 +87,7 @@ Step 4: Head back to the Charitap dashboard to see the big picture.
 Here, you can track your total donations, see how many \"round-ups\"
 you've completed, and view your impact trends over time.
 
-![](ssets/images/2026-25-2-Charitap/image2.png)
+![](assets/images/charitap/image2.png)
 
 **Your personal command center for tracking the power of your collective
 kindness.**
@@ -96,7 +96,7 @@ Step 5: The Activity page provides a detailed Ledger of every
 transaction. Each entry is linked to a ResilientDB blockchain ID,
 providing 100% proof of your donation.
 
-![](ssets/images/2026-25-2-Charitap/image5.png)
+![](assets/images/charitap/image5.png)
 
 **Every cent is logged on an immutable blockchain for you to verify.**
 
@@ -104,7 +104,7 @@ Step 6: Nominate your favorite charities, update your profile, and
 manage your account to ensure your philanthropy is as personal as it is
 impactful.
 
-![](ssets/images/2026-25-2-Charitap/image1.png)
+![](assets/images/charitap/image1.png)
 
 **Customizing your experience to support the causes that matter most to
 you.**
@@ -146,7 +146,7 @@ you.**
 
 ### **Technical Deep Dive: The Hybrid Architecture**
 
-![](ssets/images/2026-25-2-Charitap/image6.jpg)
+![](assets/images/charitap/image6.jpg)
 
 Charitap is a multi-layered system designed to bridge the gap between
 traditional finance (fiat) and decentralized ledgers.
