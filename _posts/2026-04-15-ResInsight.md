@@ -6,8 +6,6 @@ category: "Developer Tools"
 tags: ["AI", "MCP", "Developer Experience", "ResilientDB", "Onboarding"]
 ---
 
-# ResInsight: AI-Driven Developer Onboarding for ResilientDB
-
 **Author:** Kunjal Agrawal  
 **Date:** April 15, 2026  
 
@@ -50,9 +48,7 @@ This gap becomes especially challenging for research platforms where:
 - Setup procedures vary based on specific use cases and environments
 - Understanding requires connecting theoretical concepts (like PBFT consensus) with their actual implementation in your codebase
 
-### Why Can't ChatGPT Just Build This?
-
-You might wonder: "Can't I just describe what I need to an AI and have it build the solution?" Here's why that doesn't solve the core problem:
+### But can't I just describe what I need to an AI and have it build the solution? Here's why that doesn't solve the core problem:
 
 **The Knowledge Problem**: ChatGPT doesn't know about your specific codebase. It can't tell you which files implement consensus in ResilientDB, where transaction processing actually happens, or how different modules connect, because it's never analyzed your repositories.
 
