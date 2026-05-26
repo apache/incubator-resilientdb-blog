@@ -29,7 +29,7 @@ Despite its importance, achieving effective observability in production distribu
 
 ## Approach
 
-DeepObserve is built on two core design decisions: running observability as a **sidecar**, and using **[eBPF](https://ebpf.io/)** for instrumentation. Together, they keep telemetry out of the database hot path while still providing protocol-aware visibility at runtime.
+DeepObserve is built on two core design decisions: running observability as a **[sidecar](https://ujjwal18.hashnode.dev/understanding-the-sidecar-pattern-how-atlassian-reduced-latency-by-70)**, and using **[eBPF](https://ebpf.io/)** for instrumentation. Together, they keep telemetry out of the database hot path while still providing protocol-aware visibility at runtime.
 
 ### Why a Sidecar Pattern
 
@@ -127,7 +127,7 @@ int Commitment::ProcessCommitMsg(std::unique_ptr<Context> context,
 }
 ```
 
-**Sidecar and bpftrace modules.** When ResView starts, the sidecar spawns a bpftrace listener for the running ResilientDB process. We define separate bpf programs for each module, each targeting a specific sub-protocol or consensus stage—commitment, view change, request intake, and others. Each module registers an uprobe on the corresponding trace dispatch hook. For example, the commitment module attaches to `resdb_trace_pbft_commit_state` and unpacks the packed metadata at probe time:
+**Sidecar and bpftrace modules.** When ResView starts, the sidecar spawns a [bpftrace](https://bpftrace.org/) listener for the running ResilientDB process. We define separate bpf programs for each module, each targeting a specific sub-protocol or consensus stage—commitment, view change, request intake, and others. Each module registers an uprobe on the corresponding trace dispatch hook. For example, the commitment module attaches to `resdb_trace_pbft_commit_state` and unpacks the packed metadata at probe time:
 
 ```
 uprobe:/home/ubuntu/production/incubator-resilientdb/bazel-bin/service/kv/kv_service:resdb_trace_pbft_commit_state
@@ -145,7 +145,14 @@ uprobe:/home/ubuntu/production/incubator-resilientdb/bazel-bin/service/kv/kv_ser
 
 The previous ResView implementation collected statistics in-process: a data structure inside the consensus layer recorded stage timestamps and message arrivals, then pushed JSON over a websocket to the frontend. This required over 600 lines of telemetry code embedded across the consensus hot path. The eBPF redesign reduces the in-process footprint to under 250 lines of lightweight hooks—the database only declares *where* to trace; the sidecar and bpftrace modules decide *what* to capture and *how* to present it.
 
-### Demonstration
+### Demo Video
+
+<div class="extensions extensions--video">
+  <iframe src="https://www.youtube.com/embed/Nj7aMJNdLtA?rel=0&showinfo=0"
+    frameborder="0" scrolling="no" allowfullscreen></iframe>
+</div>
+
+### Screenshots
 
 <p>
     <img src="/assets/images/deepobserve/all-replicas-good.png" alt="ResView consensus visualizer" style="width: 100%"/>
@@ -223,7 +230,14 @@ ResLens follows the same sidecar architecture as ResView, but targets continuous
 
 **AI-accessible flamegraph analysis.** To enable AI agents to reason over profiling data, ResLens converts flamegraphs into a structured text representation using [pprof](https://github.com/google/pprof). The exported markdown captures the call-stack hierarchy and sample counts in a format that MCP-connected agents can parse and query—allowing natural-language questions such as which functions dominate CPU time during consensus execution, without requiring the agent to interpret raw binary profile data or interact with the Pyroscope UI directly.
 
-### Demonstration
+### Demo Video
+
+<div class="extensions extensions--video">
+  <iframe src="https://www.youtube.com/embed/CKIoCnKrtKI?rel=0&showinfo=0"
+    frameborder="0" scrolling="no" allowfullscreen></iframe>
+</div>
+
+### Screenshots
 
 <p>
     <img src="/assets/images/deepobserve/reslens-split-view.png" alt="ResLens split view with execution time table and flamegraph" style="width: 100%"/>
