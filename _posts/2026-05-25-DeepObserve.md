@@ -1,7 +1,7 @@
 ---
 layout: article
 title: "Deep Observe: Building AI Assisted Observability for Consensus Protocols"
-author: Harish
+author: Harish Krishnakumar, Bismanpal Singh Anand, Arindaam Roy
 tags: NexRes, Observability, eBPF
 aside:
     toc: true
@@ -145,13 +145,6 @@ uprobe:/home/ubuntu/production/incubator-resilientdb/bazel-bin/service/kv/kv_ser
 
 The previous ResView implementation collected statistics in-process: a data structure inside the consensus layer recorded stage timestamps and message arrivals, then pushed JSON over a websocket to the frontend. This required over 600 lines of telemetry code embedded across the consensus hot path. The eBPF redesign reduces the in-process footprint to under 250 lines of lightweight hooks—the database only declares *where* to trace; the sidecar and bpftrace modules decide *what* to capture and *how* to present it.
 
-### Demo Video
-
-<div class="extensions extensions--video">
-  <iframe src="https://www.youtube.com/embed/Nj7aMJNdLtA?rel=0&showinfo=0"
-    frameborder="0" scrolling="no" allowfullscreen></iframe>
-</div>
-
 ### Screenshots
 
 <p>
@@ -230,13 +223,6 @@ ResLens follows the same sidecar architecture as ResView, but targets continuous
 
 **AI-accessible flamegraph analysis.** To enable AI agents to reason over profiling data, ResLens converts flamegraphs into a structured text representation using [pprof](https://github.com/google/pprof). The exported markdown captures the call-stack hierarchy and sample counts in a format that MCP-connected agents can parse and query—allowing natural-language questions such as which functions dominate CPU time during consensus execution, without requiring the agent to interpret raw binary profile data or interact with the Pyroscope UI directly.
 
-### Demo Video
-
-<div class="extensions extensions--video">
-  <iframe src="https://www.youtube.com/embed/CKIoCnKrtKI?rel=0&showinfo=0"
-    frameborder="0" scrolling="no" allowfullscreen></iframe>
-</div>
-
 ### Screenshots
 
 <p>
@@ -313,3 +299,12 @@ The demonstrations in this post cover the full path from motivation to implement
 ## Source Code
 
 The DeepObserve MCP server, deployment configuration, and tool implementations are available in the [DeepObserve repository](https://github.com/harish876/DeepObserve). Live demos are available at [ResView](https://dev-res-view.vercel.app/pages/visualizer) and [ResLens](https://reslens.resilientdb.com/cpu).
+
+## Demo Video
+
+<div class="extensions extensions--video">
+  <iframe src="https://www.youtube.com/embed/83JqM8qdENI?rel=0&showinfo=0"
+    frameborder="0" scrolling="no" allowfullscreen></iframe>
+</div>
+
+Watch the full walkthrough on [YouTube](https://youtu.be/83JqM8qdENI?si=7rBbP932qJMJr_p_).
