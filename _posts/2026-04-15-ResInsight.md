@@ -1,13 +1,18 @@
 ---
+layout: article
 title: "ResInsight: AI-Driven Developer Onboarding for ResilientDB"
-author: "Kunjal Agrawal"
-date: "2026-04-15"
+author: kunjal
+aside:
+   toc: true
+article_header:
+   type: overlay
+   theme: dark
+   background_color: '#000'
+   background_image:
+      gradient: 'linear-gradient(135deg, rgba(0, 204, 154 , .2), rgba(51, 154, 154, .2))'
+      src: assets/images/resdb-gettingstarted/code_close_up.jpeg
 category: "Developer Tools"
 tags: ["AI", "MCP", "Developer Experience", "ResilientDB", "Onboarding"]
----
-
-**Author:** Kunjal Agrawal  
-**Date:** April 15, 2026  
 
 ---
 
