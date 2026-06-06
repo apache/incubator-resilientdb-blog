@@ -1,7 +1,7 @@
 ---
 layout: article
 title: The World’s First Blockchain-Backed Drawing App? Introducing ResCanvas.
-author: Henry Chou, Chris Ruan
+author: henry, zehong
 tags: ResCanvas, ResilientDB, Full-Stack, ResVault, MongoDB, DigitalWallet, GraphQL, Redis
 aside:
   toc: true
@@ -118,6 +118,24 @@ For instance, there is still a risk that the application can suffer from **front
 The core functionality of ResCanvas also depends on the **availability of ResilientDB**. ResilientDB endpoints and GraphQL commit endpoints used by the backend must remain available and trusted by backend operators. If those services are compromised, ledger inclusion or availability may be affected. However, the probability of this occurring is extremely low due to the decentralized, blockchain nature of ResilientDB.
 
 Furthermore, certain backend layers and services, such as Redis and MongoDB, rely on the user's level of **backend trust**. Users must trust the backend operators to correctly implement and enforce security policies, and also ensure that those backend layers and services are running on trusted nodes. Having nodes that are trustworthy to the user is essential as the backend has access to certain data such as unencrypted strokes for public rooms.
+
+## Frontend Design and User Experience
+
+![Image](/assets/images/rescanvas/frontend_demo.png)
+
+While ResCanvas is powered by a decentralized backend architecture, the user experience is intentionally designed to feel **familiar and approachable**. The frontend serves as the main interaction layer between users and the underlying ResilientDB-powered system. Instead of exposing users directly to blockchain transactions, caching layers, or synchronization logic, the interface presents ResCanvas as a clean collaborative drawing workspace.
+
+The ResCanvas frontend is organized around a **canvas-first layout**. The central canvas workspace occupies the majority of the screen so that drawing remains the primary user activity. This design choice helps users focus on creative expression while keeping supporting controls available around the workspace. Drawing input is captured directly from the canvas area and converted into structured stroke data that can later be submitted to the backend, cached, synchronized, and persisted through the system.
+
+On the left side of the interface, ResCanvas provides a **compact vertical toolbar** for drawing controls and canvas operations. This toolbar maintains important UI state such as the selected tool, brush size, and color. It also exposes drawing-related actions such as tool selection, undo/redo operations, and other canvas controls. By keeping these controls compact and visually separated from the main drawing area, the interface reduces clutter and preserves more usable space for the canvas itself.
+
+At the top of the interface, the application displays **navigation and user context**. The breadcrumb-style room information helps users understand which canvas room they are currently working in, while the account area fetches and displays user information after login or registration. This connects the authentication flow with the main drawing experience and gives users a clear sense of where they are inside the application.
+
+On the right side, the interface includes a **drawing history panel**. This panel helps surface the historical nature of ResCanvas by showing previous drawing activity associated with the current room. While the backend and ResilientDB preserve the deeper operation history, the frontend presents this concept in a way that users can understand visually. This supports one of the core ideas of ResCanvas: the canvas is not just a final image, but an evolving history of user contributions.
+
+The bottom navigation bar connects ResCanvas to broader **project resources**, including help pages, blog content, metrics, analytics, benchmark dashboards, and overview statistics. These links help present ResCanvas as a more complete application rather than a standalone drawing prototype. They also make it easier for users, developers, and evaluators to explore the surrounding ResilientDB ecosystem.
+
+Overall, the frontend design bridges the gap between a technically complex decentralized backend and a simple user-facing drawing experience. Users interact with familiar concepts such as a canvas, toolbar, room navigation, drawing history, and account controls, while the system behind the interface handles authentication, real-time synchronization, caching, persistent storage, and blockchain-backed operation history.
 
 # ResCanvas Setup Guide
 Want to deploy and run ResCanvas locally right on your own machine? This guide provides complete instructions to deploy ResCanvas locally, including setup for the cache layer, backend, and frontend.
