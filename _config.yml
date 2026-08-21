@@ -18,7 +18,7 @@
 ##############################
 text_skin: expolab # "default" (default), "dark", "forest", "ocean", "chocolate", "orange"
 highlight_theme: tomorrow-night-eighties # "default" (default), "tomorrow", "tomorrow-night", "tomorrow-night-eighties", "tomorrow-night-blue", "tomorrow-night-bright"
-url     : https://blog.expolab.com # the base hostname & protocol for your site e.g. https://www.someone.com
+url     : https://blog.expolab.org # the base hostname & protocol for your site e.g. https://www.someone.com
 baseurl : / # does not include hostname
 title   : 
 description: > # this means to ignore newlines until "Language & timezone"
